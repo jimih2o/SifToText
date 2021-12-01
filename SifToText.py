@@ -3,7 +3,7 @@ node_index = 1
 protein_enum = {}
 edges = []
 
-with open("Network3_Human_protein_protein_interaction_network.sif") as fs:
+with open(sys.argv[1]) as fs:
   lines = fs.readlines()
   for line in lines:
     # format is PROT1, pp, PROT2 
@@ -24,6 +24,6 @@ with open("Network3_Human_protein_protein_interaction_network.sif") as fs:
 
     edges.append("{0}\t{1}\t{2}".format(x1, x2, 1))
 
-with open("Network3_Human_protein_protein_interaction_network_TEXT.txt", "wt") as fs:
+with open(sys.argv[2], "wt") as fs:
   for edge in edges:
     fs.write(edge + "\n")
